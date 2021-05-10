@@ -23,6 +23,14 @@
 # ifndef SIGBUS
 #  define SIGBUS 10
 # endif
+# ifndef SIGALRM
+#  define SIGALRM 14
+# endif
+# ifndef SIGKILL
+#  define SIGKILL 9
+# endif
+
+int g_fw_child_pid;
 
 typedef struct s_unit_test
 {

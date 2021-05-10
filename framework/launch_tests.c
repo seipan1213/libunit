@@ -12,22 +12,25 @@
 
 #include "framework.h"
 
-void		exit_func(void)
+static void		timer_handler(int pid)
 {
-	printf("Framework error\n");
-	exit(1);
+	if (pid != g_fw_child_pid)
+		kill(g_fw_child_pid, SIGKILL);
 }
 
-static int			test_unit(t_unit_test *unit)
+static int		test_unit(t_unit_test *unit)
 {
 	pid_t	pid;
 	int		status;
 
+	signal(SIGALRM, timer_handler);
 	pid = fork();
+	g_fw_child_pid = pid;
 	if (pid == -1)
 		exit_func();
 	else if (pid == 0)
 		exit(unit->func());
+	alarm(2);
 	wait(&status);
 	if (WIFEXITED(status))
 		return (WEXITSTATUS(status));
@@ -50,6 +53,8 @@ static void	print_status(int status)
 		printf("\x1b[31m[ABRT]\x1b[39m\n");
 	else if (status == SIGFPE)
 		printf("\x1b[31m[FPE]\x1b[39m\n");
+	else if (status == SIGKILL)
+		printf("\x1b[31m[TLE]\x1b[39m\n");
 	else
 		printf("\x1b[31m[ERR]\x1b[39m\n");
 }

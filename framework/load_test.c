@@ -12,6 +12,12 @@
 
 #include "framework.h"
 
+void		exit_func(void)
+{
+	printf("Framework error\n");
+	exit(1);
+}
+
 t_unit_test		*create_unit(char *name, int (*func)(void))
 {
 	t_unit_test *unit;
