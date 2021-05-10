@@ -81,7 +81,7 @@ int				launch_tests(t_unit_test **lst)
 	while (unit)
 	{
 		status = test_unit(unit);
-		printf("\t> %s : ", unit->name);
+		printf("\t\x1b[36m%d\x1b[39m> %s : ",checked + 1, unit->name);
 		print_status(status);
 		if (status == 0)
 			success++;
