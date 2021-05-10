@@ -17,7 +17,7 @@ t_unit_test		*create_unit(char *name, int (*func)(void))
 	t_unit_test *unit;
 
 	if (!(unit = malloc(sizeof(t_unit_test))))
-		return (NULL);
+		exit_func();
 	unit->func = func;
 	unit->name = name;
 	unit->next = NULL;
@@ -29,7 +29,7 @@ void			addb_unit(t_unit_test **lst, t_unit_test *unit)
 	t_unit_test *back;
 
 	if (!lst || !unit)
-		return ;
+		exit_func();
 	if (!*lst)
 		*lst = unit;
 	else

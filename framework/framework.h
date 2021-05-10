@@ -35,5 +35,6 @@ void			load_test(t_unit_test **lst, char *name, int (*func)(void));
 t_unit_test		*create_unit(char *name, int (*func)(void));
 void			addb_unit(t_unit_test **lst, t_unit_test *unit);
 int				launch_tests(t_unit_test **lst);
+void			exit_func(void);
 
 #endif

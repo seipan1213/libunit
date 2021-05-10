@@ -12,6 +12,12 @@
 
 #include "framework.h"
 
+void		exit_func(void)
+{
+	printf("Framework error\n");
+	exit(1);
+}
+
 static int			test_unit(t_unit_test *unit)
 {
 	pid_t	pid;
@@ -19,7 +25,7 @@ static int			test_unit(t_unit_test *unit)
 
 	pid = fork();
 	if (pid == -1)
-		return (0);
+		exit_func();
 	else if (pid == 0)
 		exit(unit->func());
 	wait(&status);
@@ -27,19 +33,39 @@ static int			test_unit(t_unit_test *unit)
 		return (WEXITSTATUS(status));
 	else if (WIFSIGNALED(status))
 		return (WTERMSIG(status));
-	return (256);
+	return (300);
 }
 
 static void	print_status(int status)
 {
 	if (status == 0)
-		printf("[OK]\n");
+		printf("\x1b[32m[OK]\x1b[39m\n");
 	else if (status == -1)
-		printf("[KO]\n");
+		printf("\x1b[31m[KO]\x1b[39m\n");
 	else if (status == SIGSEGV)
-		printf("[SEGV]\n");
+		printf("\x1b[31m[SEGV]\x1b[39m\n");
 	else if (status == SIGBUS)
-		printf("[BUSE]\n");
+		printf("\x1b[31m[BUSE]\x1b[39m\n");
+	else if (status == SIGABRT)
+		printf("\x1b[31m[ABRT]\x1b[39m\n");
+	else if (status == SIGFPE)
+		printf("\x1b[31m[FPE]\x1b[39m\n");
+	else
+		printf("\x1b[31m[ERR]\x1b[39m\n");
+}
+
+static void		free_units(t_unit_test **lst)
+{
+	t_unit_test *tmp;
+
+	while (*lst)
+	{
+		tmp = *lst;
+		*lst = (*lst)->next;
+		free(tmp);
+	}
+	*lst = NULL;
+	return ;
 }
 
 int				launch_tests(t_unit_test **lst)
@@ -62,6 +88,11 @@ int				launch_tests(t_unit_test **lst)
 		checked++;
 		unit = unit->next;
 	}
+	free_units(lst);
 	printf("\n%d/%d tests checked\n", success, checked);
-	return (0);
+	free_units(lst);
+	if (checked == success)
+		return (0);
+	else
+		return (-1);
 }
