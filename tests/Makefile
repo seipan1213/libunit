@@ -6,7 +6,7 @@
 #    By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/09 20:09:50 by tishigak          #+#    #+#              #
-#    Updated: 2021/05/10 16:20:41 by tishigak         ###   ########.fr        #
+#    Updated: 2021/05/11 12:39:21 by tishigak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ FRAMEWORK_LIB		= ./../framework/libunit.a
 REALTEST_DIR		= ../libft
 REALTEST_LIB		= ../libft/libft.a
 
-STRLCAT_TESTS		= ./strlcat/00_lancher.c ./strlcat/01_basic_test.c ./strlcat/02_ko_test.c \
-									./strlcat/03_segv_fault_test.c ./strlcat/04_bus_err_test.c
-SRCS						= main.c ${STRLCAT_TESTS}
+STRLEN_TESTS		= ./strlen/00_lancher.c ./strlen/01_basic_test.c ./strlen/02_ko_test.c \
+									./strlen/03_segv_fault_test.c ./strlen/04_bus_err_test.c
+SRCS						= main.c ${STRLEN_TESTS}
 OBJS						= $(SRCS:.c=.o)
 
 all:	$(NAME)
@@ -34,12 +34,10 @@ test: all
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 clean:
-	cd ${FRAMEWORK_DIR} && make clean
 	cd ${REALTEST_DIR} && make clean
 	rm -f $(OBJS)
 
 fclean:	clean
-	cd ${FRAMEWORK_DIR} && make fclean
 	cd ${REALTEST_DIR} && make fclean
 	rm -f $(NAME)
 

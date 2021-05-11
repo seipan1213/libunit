@@ -6,7 +6,7 @@
 /*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 22:52:14 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/10 16:14:50 by tishigak         ###   ########.fr       */
+/*   Updated: 2021/05/11 12:38:03 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 int	strlen_launcher(void);
 int basic_test(void);
 int	ko_test(void);
-int	segv_fault_test(void);
+int	segv_test(void);
 int	bus_err_test(void);
 
 #endif
