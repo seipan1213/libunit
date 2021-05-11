@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_bus_err_test.c                                  :+:      :+:    :+:   */
+/*   14_one_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/09 23:21:50 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/11 13:14:47 by tishigak         ###   ########.fr       */
+/*   Created: 2021/05/11 12:56:59 by tishigak          #+#    #+#             */
+/*   Updated: 2021/05/11 17:12:48 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/tests.h"
 
-int	bus_err_test(void)
+int	one_test(void)
 {
-	char *ptr;
-
-	ptr = "abcde";
-	ptr[0] = '\0';
-	if (strlen(ptr) == ft_strlen(ptr))
+	if (strlen("1") == ft_strlen("1"))
 		return (0);
 	else
 		return (-1);

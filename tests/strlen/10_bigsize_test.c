@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_bus_err_test.c                                  :+:      :+:    :+:   */
+/*   10_bigsize_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/09 23:21:50 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/11 13:14:47 by tishigak         ###   ########.fr       */
+/*   Created: 2021/05/11 12:56:59 by tishigak          #+#    #+#             */
+/*   Updated: 2021/05/11 15:41:26 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/tests.h"
 
-int	bus_err_test(void)
+int	bigsize_test(void)
 {
-	char *ptr;
+	char str[20000];
 
-	ptr = "abcde";
-	ptr[0] = '\0';
-	if (strlen(ptr) == ft_strlen(ptr))
+	memset(str, 'a', 20000);
+	str[19999] = '\0';
+	if (strlen(str) == ft_strlen(str))
 		return (0);
 	else
 		return (-1);
