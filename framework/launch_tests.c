@@ -33,7 +33,12 @@ static int		test_unit(t_unit_test *unit)
 	alarm(2);
 	wait(&status);
 	if (WIFEXITED(status))
-		return (WEXITSTATUS(status));
+	{
+		if (WEXITSTATUS(status) == 255)
+			return (-1);
+		else
+			return (WEXITSTATUS(status));
+	}
 	else if (WIFSIGNALED(status))
 		return (WTERMSIG(status));
 	return (300);
