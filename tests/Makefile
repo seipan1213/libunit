@@ -6,7 +6,7 @@
 #    By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/09 20:09:50 by tishigak          #+#    #+#              #
-#    Updated: 2021/05/11 12:39:21 by tishigak         ###   ########.fr        #
+#    Updated: 2021/05/11 12:51:29 by tishigak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,10 @@ CC							= gcc
 CFLAGS					= -Wall -Werror -Wextra
 
 FRAMEWORK_DIR		= ../framework
-FRAMEWORK_LIB		= ./../framework/libunit.a
-
-REALTEST_DIR		= ../libft
-REALTEST_LIB		= ../libft/libft.a
+FRAMEWORK_LIB		= ${FRAMEWORK_DIR}/libunit.a
 
 STRLEN_TESTS		= ./strlen/00_lancher.c ./strlen/01_basic_test.c ./strlen/02_ko_test.c \
-									./strlen/03_segv_fault_test.c ./strlen/04_bus_err_test.c
+									./strlen/03_segv_test.c ./strlen/04_bus_err_test.c
 SRCS						= main.c ${STRLEN_TESTS}
 OBJS						= $(SRCS:.c=.o)
 
@@ -34,22 +31,19 @@ test: all
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 clean:
-	cd ${REALTEST_DIR} && make clean
+	$(MAKE) -C $(FRAMEWORK_DIR) clean
 	rm -f $(OBJS)
 
 fclean:	clean
-	cd ${REALTEST_DIR} && make fclean
+	$(MAKE) -C $(FRAMEWORK_DIR) fclean
 	rm -f $(NAME)
 
 re:	fclean all
 
 $(FRAMEWORK_LIB):
-	cd ${FRAMEWORK_DIR} && make all
+	$(MAKE) -C $(FRAMEWORK_DIR)
 
-${REALTEST_LIB}:
-	cd ${REALTEST_DIR} && make all
-
-$(NAME): $(OBJS) ${REALTEST_LIB} $(FRAMEWORK_LIB)
-	$(CC) $(OBJS) $(FRAMEWORK_LIB) ${REALTEST_LIB} -o $(NAME) $(CFLAGS)
+$(NAME): $(OBJS) $(FRAMEWORK_LIB)
+	$(CC) $(OBJS) $(FRAMEWORK_LIB) -o $(NAME) $(CFLAGS)
 
 .PHONY:	all clean fclean re test
