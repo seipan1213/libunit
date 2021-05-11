@@ -6,13 +6,13 @@
 /*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 12:56:59 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/11 17:12:48 by tishigak         ###   ########.fr       */
+/*   Updated: 2021/05/11 17:57:52 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/tests.h"
+#include "strlen.h"
 
-int	one_test(void)
+int	strlen_one_test(void)
 {
 	if (strlen("1") == ft_strlen("1"))
 		return (0);

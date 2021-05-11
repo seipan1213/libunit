@@ -6,13 +6,13 @@
 /*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 12:59:32 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/11 13:07:50 by tishigak         ###   ########.fr       */
+/*   Updated: 2021/05/11 17:57:26 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/tests.h"
+#include "strlen.h"
 
-int	not_ascii_test(void)
+int	strlen_not_ascii_test(void)
 {
 	if (strlen("♫♪♫♪♫♪") == ft_strlen("♫♪♫♪♫♪"))
 		return (0);

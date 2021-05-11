@@ -6,13 +6,13 @@
 /*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 12:56:59 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/11 15:41:26 by tishigak         ###   ########.fr       */
+/*   Updated: 2021/05/11 17:57:38 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/tests.h"
+#include "strlen.h"
 
-int	bigsize_test(void)
+int	strlen_bigsize_test(void)
 {
 	char str[20000];
 

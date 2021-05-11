@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   05_emtpy_test.c                                    :+:      :+:    :+:   */
+/*   05_empty_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 12:56:59 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/11 12:57:18 by tishigak         ###   ########.fr       */
+/*   Updated: 2021/05/11 17:57:23 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/tests.h"
+#include "strlen.h"
 
-int	empty_test(void)
+int	strlen_empty_test(void)
 {
 	if (strlen("") == ft_strlen(""))
 		return (0);

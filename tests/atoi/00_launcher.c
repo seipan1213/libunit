@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   13_zero_div_test.c                                 :+:      :+:    :+:   */
+/*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 12:56:59 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/11 17:57:49 by tishigak         ###   ########.fr       */
+/*   Created: 2021/05/09 22:54:19 by tishigak          #+#    #+#             */
+/*   Updated: 2021/05/11 17:58:52 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "strlen.h"
+#include "atoi.h"
 
-int	strlen_zero_div_test(void)
+int atoi_launcher(void)
 {
-	int	a;
-	int	zero;
+	t_unit_test *tests;
 
-	zero = 0;
-	a = 10 / zero;
-	if (strlen("str") == ft_strlen("str"))
-		return (0);
-	else
-		return (-1);
+	tests = NULL;
+	puts("ATOI:");
+	load_test(&tests, "Basic test", &atoi_basic_test);
+	load_test(&tests, "Zero test", &atoi_zero_test);
+	load_test(&tests, "Minus test", &atoi_minus_test);
+	load_test(&tests, "Max test", &atoi_max_test);
+	load_test(&tests, "Min test", &atoi_min_test);
+	return(launch_tests(&tests));
 }

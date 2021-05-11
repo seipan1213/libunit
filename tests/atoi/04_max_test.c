@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   13_zero_div_test.c                                 :+:      :+:    :+:   */
+/*   04_max_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 12:56:59 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/11 17:57:49 by tishigak         ###   ########.fr       */
+/*   Created: 2021/05/11 17:44:26 by tishigak          #+#    #+#             */
+/*   Updated: 2021/05/11 17:59:11 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "strlen.h"
+#include "atoi.h"
 
-int	strlen_zero_div_test(void)
+int	atoi_max_test(void)
 {
-	int	a;
-	int	zero;
-
-	zero = 0;
-	a = 10 / zero;
-	if (strlen("str") == ft_strlen("str"))
+	if (atoi("2147483647") == ft_atoi("2147483647"))
 		return (0);
 	else
 		return (-1);
