@@ -6,7 +6,7 @@
 #    By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/09 20:09:50 by tishigak          #+#    #+#              #
-#    Updated: 2021/05/11 17:52:37 by tishigak         ###   ########.fr        #
+#    Updated: 2021/05/11 18:16:57 by tishigak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,10 +45,8 @@ fclean:	clean
 
 re:	fclean all
 
-$(FRAMEWORK_LIB):
+$(NAME): $(OBJS)
 	$(MAKE) -C $(FRAMEWORK_DIR)
-
-$(NAME): $(OBJS) $(FRAMEWORK_LIB)
 	$(CC) $(OBJS) $(FRAMEWORK_LIB) -o $(NAME) $(CFLAGS)
 
 .PHONY:	all clean fclean re test
