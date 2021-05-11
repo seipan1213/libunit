@@ -6,15 +6,15 @@
 /*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 22:54:19 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/11 17:56:22 by tishigak         ###   ########.fr       */
+/*   Updated: 2021/05/11 19:01:18 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "strlen.h"
 
-int strlen_launcher(void)
+int	strlen_launcher(void)
 {
-	t_unit_test *tests;
+	t_unit_test	*tests;
 
 	tests = NULL;
 	puts("STRLEN:");
@@ -33,5 +33,5 @@ int strlen_launcher(void)
 	load_test(&tests, "Zero div test", &strlen_zero_div_test);
 	load_test(&tests, "One test", &strlen_one_test);
 	load_test(&tests, "Comb test", &strlen_comb_test);
-	return(launch_tests(&tests));
+	return (launch_tests(&tests));
 }

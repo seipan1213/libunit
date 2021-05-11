@@ -6,15 +6,15 @@
 /*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 23:20:58 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/11 17:57:16 by tishigak         ###   ########.fr       */
+/*   Updated: 2021/05/11 19:00:15 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "strlen.h"
 
-int strlen_segv_test(void)
+int	strlen_segv_test(void)
 {
-	char *ptr;
+	char	*ptr;
 
 	ptr = NULL;
 	if (strlen(ptr) == ft_strlen(ptr))
