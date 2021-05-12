@@ -6,23 +6,24 @@
 /*   By: sehattor <sehattor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:22:01 by sehattor          #+#    #+#             */
-/*   Updated: 2021/05/10 17:22:01 by sehattor         ###   ########.fr       */
+/*   Updated: 2021/05/12 13:29:38 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "framework.h"
 
-void		exit_func(void)
+void	exit_func(void)
 {
 	printf("Framework error\n");
 	exit(1);
 }
 
-t_unit_test		*create_unit(char *name, int (*func)(void))
+t_unit_test	*create_unit(char *name, int (*func)(void))
 {
-	t_unit_test *unit;
+	t_unit_test	*unit;
 
-	if (!(unit = malloc(sizeof(t_unit_test))))
+	unit = malloc(sizeof(t_unit_test));
+	if (!unit)
 		exit_func();
 	unit->func = func;
 	unit->name = name;
@@ -30,9 +31,9 @@ t_unit_test		*create_unit(char *name, int (*func)(void))
 	return (unit);
 }
 
-void			addb_unit(t_unit_test **lst, t_unit_test *unit)
+void	addb_unit(t_unit_test **lst, t_unit_test *unit)
 {
-	t_unit_test *back;
+	t_unit_test	*back;
 
 	if (!lst || !unit)
 		exit_func();
@@ -47,7 +48,7 @@ void			addb_unit(t_unit_test **lst, t_unit_test *unit)
 	}
 }
 
-void			load_test(t_unit_test **lst, char *name, int (*func)(void))
+void	load_test(t_unit_test **lst, char *name, int (*func)(void))
 {
 	t_unit_test	*unit;
 

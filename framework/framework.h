@@ -6,7 +6,7 @@
 /*   By: sehattor <sehattor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:50:55 by sehattor          #+#    #+#             */
-/*   Updated: 2021/05/10 17:50:55 by sehattor         ###   ########.fr       */
+/*   Updated: 2021/05/12 15:18:51 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@
 #  define SIGKILL 9
 # endif
 
-int g_fw_child_pid;
+int	g_fw_child_pid;
 
 typedef struct s_unit_test
 {
-	char			*name;
+	char				*name;
 	struct s_unit_test	*next;
-	int				(*func)(void);
+	int					(*func)(void);
 }		t_unit_test;
 
 void			load_test(t_unit_test **lst, char *name, int (*func)(void));
