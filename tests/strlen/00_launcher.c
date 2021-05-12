@@ -6,7 +6,7 @@
 /*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 22:54:19 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/11 19:01:18 by tishigak         ###   ########.fr       */
+/*   Updated: 2021/05/12 15:25:50 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	strlen_launcher(void)
 	t_unit_test	*tests;
 
 	tests = NULL;
-	puts("STRLEN:");
+	print_funcname("STRLEN");
 	load_test(&tests, "Basic test", &strlen_basic_test);
 	load_test(&tests, "KO test", &strlen_ko_test);
 	load_test(&tests, "Segv test", &strlen_segv_test);
