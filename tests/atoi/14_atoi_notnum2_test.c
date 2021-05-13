@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   14_atoi_notnum2_test.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tishigak <tishigak@student.42toky...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/09 22:52:14 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/12 19:40:12 by tishigak         ###   ########.fr       */
+/*   Created: 2021/05/12 15:50:07 by tishigak          #+#    #+#             */
+/*   Updated: 2021/05/12 15:51:31 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-# define TESTS_H
+#include "atoi.h"
 
-# include <string.h>
-# include <stdlib.h>
-# include "../framework/framework.h"
-
-int	strlen_launcher(void);
-int	atoi_launcher(void);
-int	strnstr_launcher(void);
-
-#endif
+int	atoi_notnum2_test(void)
+{
+	if (atoi("123456@8765") == ft_atoi("123456@8765"))
+		return (0);
+	else
+		return (-1);
+}

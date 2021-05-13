@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   06_not_found_test.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tishigak <tishigak@student.42toky...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/09 22:52:14 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/12 19:40:12 by tishigak         ###   ########.fr       */
+/*   Created: 2021/05/12 18:06:56 by tishigak          #+#    #+#             */
+/*   Updated: 2021/05/12 18:08:00 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-# define TESTS_H
+#include "strnstr.h"
 
-# include <string.h>
-# include <stdlib.h>
-# include "../framework/framework.h"
+int	strnstr_not_found1_test()
+{
+	char	*heystack;
+	char	*needle;
 
-int	strlen_launcher(void);
-int	atoi_launcher(void);
-int	strnstr_launcher(void);
-
-#endif
+	heystack = "abcdefge";
+	needle = "cde";
+	if (strnstr(heystack, needle, 4) == ft_strnstr(heystack, needle, 4))
+		return (0);
+	else
+		return (-1);
+}

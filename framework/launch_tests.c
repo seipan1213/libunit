@@ -6,19 +6,19 @@
 /*   By: sehattor <sehattor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:50:53 by sehattor          #+#    #+#             */
-/*   Updated: 2021/05/10 17:50:53 by sehattor         ###   ########.fr       */
+/*   Updated: 2021/05/12 15:27:02 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "framework.h"
 
-static void		timer_handler(int pid)
+static void	timer_handler(int pid)
 {
 	if (pid != g_fw_child_pid)
 		kill(g_fw_child_pid, SIGKILL);
 }
 
-static int		test_unit(t_unit_test *unit)
+static int	test_unit(t_unit_test *unit)
 {
 	pid_t	pid;
 	int		status;
@@ -64,9 +64,9 @@ static void	print_status(int status)
 		printf("\x1b[31m[ERR]\x1b[39m\n");
 }
 
-static void		free_units(t_unit_test **lst)
+static void	free_units(t_unit_test **lst)
 {
-	t_unit_test *tmp;
+	t_unit_test	*tmp;
 
 	while (*lst)
 	{
@@ -78,7 +78,7 @@ static void		free_units(t_unit_test **lst)
 	return ;
 }
 
-int				launch_tests(t_unit_test **lst)
+int	launch_tests(t_unit_test **lst)
 {
 	t_unit_test	*unit;
 	int			checked;
@@ -91,8 +91,9 @@ int				launch_tests(t_unit_test **lst)
 	while (unit)
 	{
 		status = test_unit(unit);
-		printf("\t\x1b[36m%d\x1b[39m> %s : ",checked + 1, unit->name);
+		printf("\t\x1b[36m%2d\x1b[39m> %-20s : ", checked + 1, unit->name);
 		print_status(status);
+		print_report(checked + 1, unit->name, status);
 		if (status == 0)
 			success++;
 		checked++;
@@ -100,9 +101,7 @@ int				launch_tests(t_unit_test **lst)
 	}
 	free_units(lst);
 	printf("\n%d/%d tests checked\n", success, checked);
+	print_result(success, checked);
 	free_units(lst);
-	if (checked == success)
-		return (0);
-	else
-		return (-1);
+	return ((checked == success) - 1);
 }

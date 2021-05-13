@@ -6,11 +6,11 @@
 #    By: sehattor <sehattor@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/10 23:29:07 by sehattor          #+#    #+#              #
-#    Updated: 2021/05/10 23:29:07 by sehattor         ###   ########.fr        #
+#    Updated: 2021/05/12 15:20:58 by tishigak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = launch_tests.c load_test.c
+SRCS = launch_tests.c load_test.c output.c
 OBJS = $(SRCS:.c=.o)
 
 CC	= gcc

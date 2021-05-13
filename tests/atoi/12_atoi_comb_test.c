@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   12_atoi_comb_test.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tishigak <tishigak@student.42toky...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/09 22:52:14 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/12 19:40:12 by tishigak         ###   ########.fr       */
+/*   Created: 2021/05/12 15:47:53 by tishigak          #+#    #+#             */
+/*   Updated: 2021/05/12 15:52:58 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-# define TESTS_H
+#include "atoi.h"
 
-# include <string.h>
-# include <stdlib.h>
-# include "../framework/framework.h"
-
-int	strlen_launcher(void);
-int	atoi_launcher(void);
-int	strnstr_launcher(void);
-
-#endif
+int	atoi_comb_test(void)
+{
+	if (atoi("-000000100") == ft_atoi("-000000100"))
+		return (0);
+	else
+		return (-1);
+}

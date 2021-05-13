@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   04_max_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tishigak <tishigak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/09 22:52:14 by tishigak          #+#    #+#             */
-/*   Updated: 2021/05/12 19:40:12 by tishigak         ###   ########.fr       */
+/*   Created: 2021/05/11 17:44:26 by tishigak          #+#    #+#             */
+/*   Updated: 2021/05/12 15:59:34 by tishigak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-# define TESTS_H
+#include "atoi.h"
 
-# include <string.h>
-# include <stdlib.h>
-# include "../framework/framework.h"
-
-int	strlen_launcher(void);
-int	atoi_launcher(void);
-int	strnstr_launcher(void);
-
-#endif
+int	atoi_longmax_test(void)
+{
+	if (atoi("9223372036854775807") == ft_atoi("9223372036854775807"))
+		return (0);
+	else
+		return (-1);
+}
